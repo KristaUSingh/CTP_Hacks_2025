@@ -59,3 +59,5 @@ Thumbs.db
 # Project-specific
 requirements.txt
 test.py
+
+split_csv.py
