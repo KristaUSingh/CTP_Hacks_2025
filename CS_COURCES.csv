@@ -1,0 +1,57 @@
+﻿ID,COURSES,NAME,CREDITS,DEPT,TERMS,CATEGORY,PROFESSOR,RATING ,DIFFICULTY ,NUMBER OF REVIEWS,PREREQ
+1,MATH 20100,Calculus 1 ,4,MATH,"F, S,Su",CORE,Cheikhna Mahawa Diagana,3.3,3.4,180,
+2,MATH 21200,Calculus 2 ,4,MATH,"F, S,Su",CORE,Sam Magill,2.5,4.2,76,MATH 20100
+3,MATH 21300,Calculus 3,4,MATH,"F, S,Su",CORE,Sean Cleary,3.4,4,87,MATH 21200
+4,Math 34600,Elements of Linear Algebra,3,MATH,"F, S,Su",CORE,Eli Amzallag,4,3.3,98,MATH 21200
+5,BIO 10100,Biological Foundations 1,4,SCIENCE,"F, S,Su",CORE,Fardad Firooznia,2.6,4.5,307,MATH 20100
+6,BIO 10200,Biological Foundations 2,4,SCIENCE ,"F, S,Su",CORE,Yevgeniy Grigoryev,3.4,3.8,83,BIO 10200
+7,CHEM 10301,General Chemistry 1,4,SCIENCE ,"F, S,Su",CORE,Abdelahad Khajo,3.8,3.1,54,
+8,CHEM 10401,General Chemistry 2,4,SCIENCE ,"F, S,Su",CORE,Issa Salame,4.4,2.6,337,CHEM 10301
+9,PHYS 20700,General Physics 1,4,SCIENCE ,"F, S,Su",CORE,Sergey Vitkalov,2.8,2.8,70,
+10,PHYS 20800,General Physics 2,4,SCIENCE ,"F, S,Su",CORE,Sergey Vitkalov,2.8,2.8,70,PHYS 20700
+11,CSc 10300,Intro to Computing for Majors,3,CS,"F, S,Su",CORE,Madeline Blount,5,2.1,14,
+12,CSc 10400,Discrete Math Structures,4,CS,"F, S,Su",CORE,Tugce Ozdemir,4.3,3,22,
+13,CSc 21100,Fundamentals of Computer Systems,3,CS,"F, S,Su",CORE,Mohammad Charrwi,4.9,1.6,47,MATH 20100
+14,CSc 21200,Data Structures,3,CS,"F, S,Su",CORE,Yedidiah Solowiejczyk,3.7,1.9,7,"CSc 10300, CSc 10400"
+15,CSc 21700,Probability & Statistics for Computer Science,3,CS,"F, S,Su",CORE,Rose Wong,4.7,2.4,17,"MATH 20100, CSc 10300, CSc 10400"
+16,CSc 22000,Algorithms,3,CS,"F, S,Su",CORE,Nelly Fazio,2.7,4.2,32,CSc 21200
+17,CSc 22100,Software Design Lab,3,CS,"F, S",CORE,Zaid Al-Mashhadani,4.9,2.7,9,"CSc 21200, ENGL 21007"
+18,CSc 30400,Theoretical Computer Science,3,CS,"F, S",CORE,Jordan Matuszewski,4.9,2.8,8,"CSc 10400, CSc 22000"
+19,CSc 30100,Numerical Issues in Scientific Programming,3,CS,"F, S",CORE,Irina Gladkova,2.2,4.2,33,"CSc 21700, CSc 22000, Math 34600"
+20,CSc 38000,Computer Security,3,CS,"F, S",CORE,William Skeith,3.8,4,130,"CSc 22000, CSc 21100"
+21,CSc 33500,Programming Language Paradigms,3,CS,"F, S",CORE,Douglas Troeger,1.9,4.7,154,"CSc 22000, CSc 22100"
+22,CSc 32200,Software Engineering,3,CS,"F, S",CORE,Jie Wei,3.5,3.1,32,"CSc 22000, CSc 22100"
+23,CSc 33600,Introduction to Database Systems,3,CS,"F, S",CORE,Sheng-min Chen,5,3.5,2,"CSc 22000, CSc 22100"
+24,CSc 33200,Operating Systems,4,CS,"F, S",CORE,Zaid Al-Mashhadani,4.9,2.7,9,"CSc 22000, CSc 21700"
+25,CSc 34200,Computer Organization,3,CS,"F, S",CORE,Isidor Gertner,2.6,3.9,116,CSc 21100
+26,CSc 34300,Computer Organization Lab,3,CS,"F, S",CORE,Isidor Gertner,2.6,3.9,116,CSc 21100
+27,CSc 59866,Senior Design Project 1,3,CS,"F, S",CORE,Huy Vo,4.4,3.1,7,CSc 32200
+28,CSc 59867,Senior Design Project 2,3,CS,"F, S",CORE,Akira Kawaguchi,2.3,4.3,56,CSc 59866
+29,CSc 11300,Programming Language,1,CS,"F, S",CORE,Ana Towne ,2.6,2.8,20,CSc 10300
+30,CSc 42200,Computability,3,CS,"F, S",ELECTIVE,Nelly Fazio,2.7,4.2,32,"CSc 22000, CSc 30400"
+31,CSc 42300,Intro to Distributed Algorithms,3,CS,"F, S",ELECTIVE,Devendra Kuma,3.2,2.7,47,CSc 22000
+32,CSc 44800,Artificial Intelligence,3,CS,"F, S",ELECTIVE,Erik Grimmelmann,4.8,2.1,14,"CSc 22000, CSc 22100"
+33,CSc 45000,Combinatorics & Graph Theory,3,CS,"F, S",ELECTIVE,Tugce Ozdemir,4.3,3,22,CSc 22000
+34,CSc 48000,Cryptography,3,CS,"F, S",ELECTIVE,Nelly Fazio,2.7,4.2,32,"CSc 30400, CSc 34200"
+35,CSc 48600,Computational Complexity,3,CS, S,ELECTIVE,William Skeith,3.8,4,130,"CSc 21700, CSc 30400"
+36,CSc 44000,Computational Methods,3,CS,"F, S",ELECTIVE,Irina Gladkova,2.2,4.2,33,CSc 30100
+37,CSc 44500,Big Data Management & Analytics,3,CS,"F, S",ELECTIVE,N/A,,,,"CSc 22000, CSc 22100"
+38,CSc 44600,Mathematical Optimization Techniques,3,CS,"F, S",ELECTIVE,Octavio Betancourt,3.4,3.4,30,CSc 34600
+39,CSc 44700,Intro to Machine Learning,3,CS,"F, S",ELECTIVE,Erik Grimmelmann,4.8,2.1,14,"CSc  22000, CSc 22100"
+40,CSc 47000,Image Processing,3,CS,"F, S",ELECTIVE,George Wolberg,4.5,3.3,36,CSc 22100
+41,CSc 47100,Computer Vision,3,CS,"F, S",ELECTIVE,Michael Grossberg,3.5,3.4,29,
+42,CSc 47200,Computer Graphics,3,CS,"F, S",ELECTIVE,George Wolberg,4.5,3.3,36,CSc 22100
+43,CSc 47400,Visualization,3,CS,"F, S",ELECTIVE,Yunhua Zhao,2,4.2,20,"CSc  22000, CSc 22100"
+44,CSc 47900,Digital Libraries,3,CS,"F, S",ELECTIVE,Jie Wei,3.5,3.1,32,"CSc 33200, MATH 34600"
+45,CSc 31800,Internet Programming,3,CS,"F, S",ELECTIVE,Izidor Gertner,2.6,3.9,116,CSc 22100
+46,CSc 41200,Computer Networks,3,CS,"F, S",ELECTIVE,Kaliappa Ravindran,3,3.5,15,CSc 33200
+47,CSc 42000,Compiler Construction,3,CS,"F, S",ELECTIVE,Michael Vulis,2.3,3.8,70,CSc 30400
+48,CSc 43000,Distributed Computing,3,CS,"F, S",ELECTIVE,Devendra Kuma,3.2,2.7,47,
+49,CSc 43500,Concurrency in Operating Systems,3,CS,"F, S",ELECTIVE,Devendra Kuma,3.2,2.7,47,CSc 33200
+50,CSc 43800,Real-Time Computer Systems,3,CS,"F, S",ELECTIVE,Izidor Gertner,2.6,3.9,116,CSc 34200
+51,CSc 45600,Topics in Modern Software Engineering,3,CS,"F, S",ELECTIVE,Abdullah Haydar,N/A,N/A,N/A,"CSc 22000, CSc 22100"
+52,CSc 47300,Website and Web Application Development,3,CS,"F, S",ELECTIVE,Kwame Baffour,3.5,2.8,6,CSc 22100
+53,CSc 49200,Web Security,3,CS,"F, S",ELECTIVE,STAFF,,,,"CSc 22000, CSc 22100"
+54,ENGL 21007,Writing for Engineering,3,ENGLISH,"F, S,Su",CORE,Santonyo Bangali,4.9,2.1,69,
+55,Speech 11100,Foundations of Speech Communication,3,ENGLISH,"F, S,Su",CORE,Yolonde Van Putten,2.8,3.9,,
+56,ENGR 27600,Engineering Economics,3,ENGINEERING ,"F, S,Su",ENGLISH_OPTION,Thomas Cheriyan,4.6,2.6,,MATH 20100
