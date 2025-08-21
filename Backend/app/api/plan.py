@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from typing import List, Optional
 from pathlib import Path
 from app.scheduler import greedy_schedule
+import traceback
 
 router = APIRouter()
 DATA_DIR = Path(__file__).resolve().parents[2] / "data"
@@ -22,7 +23,6 @@ def generate_plan(req: PlanRequest):
 
     if not (major_dir / "courses.csv").exists():
         raise HTTPException(status_code=500, detail="Data files missing in data/")
-
     try:
         schedule = greedy_schedule(
             major=req.major,
@@ -39,6 +39,8 @@ def generate_plan(req: PlanRequest):
             **schedule  # merge the dict from greedy_schedule
         }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        print("❌ Backend error:", str(e))
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"Scheduler failed: {str(e)}")
 
 

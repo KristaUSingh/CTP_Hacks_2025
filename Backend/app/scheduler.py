@@ -184,7 +184,7 @@ def greedy_schedule(major: str,
         ]
         return {
             "error": "Unable to fit all courses into the schedule within the given timeframe.",
-            "terms": terms,  # 👈 partial schedule
+            "terms": terms,  # partial schedule
             "unscheduled_courses": unscheduled_courses,
             "totals": {
                 "credits_planned": sum(t["total_credits"] for t in terms),
