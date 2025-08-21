@@ -58,7 +58,7 @@ data/
  - **Responses:** 200: Array of majors, 500: Malformed/unreadable CSV (only if read fails).
 
 - **POST /plan/**
-  - **Purpose:** Generate a semester-by-semester plan between two terms (inclusive).
+ - **Purpose:** Generate a semester-by-semester plan between two terms (inclusive).
 
 ### Request Body Fields:
 - Major: ```str — target major.```
