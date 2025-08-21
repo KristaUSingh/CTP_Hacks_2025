@@ -68,6 +68,7 @@ def greedy_schedule(major: str,
         completed_course_codes = []
 
     # Load CSVs
+    data_dir = Path("data") / major.lower()
     courses = pd.read_csv(f"{data_dir}/courses.csv")
     professors = pd.read_csv(f"{data_dir}/professors.csv")
     courses = courses.merge(professors, left_on="professor_id", right_on="id", suffixes=("", "_prof")).drop(columns=["id_prof"])
@@ -116,10 +117,11 @@ def greedy_schedule(major: str,
         current_credits = 0
         placed_this_term = []
         current_workload = 0
-        is_summer = term_sequence[term_idx].endswith("Su")
+        season, year = term_sequence[term_idx].split()
+        is_summer = (season == "Summer")
 
         if is_summer:
-            credit_cap = 8 # Summer terms typically have a lower credit cap
+            credit_cap = 9 # Summer terms typically have a lower credit cap
         else:
             credit_cap = max_credits_per_term
 

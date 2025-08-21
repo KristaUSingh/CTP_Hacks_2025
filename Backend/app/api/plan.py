@@ -18,7 +18,9 @@ class PlanRequest(BaseModel):
 
 @router.post("/")
 def generate_plan(req: PlanRequest):
-    if not (DATA_DIR / "courses.csv").exists():
+    major_dir = DATA_DIR / req.major.lower()
+
+    if not (major_dir / "courses.csv").exists():
         raise HTTPException(status_code=500, detail="Data files missing in data/")
 
     try:
