@@ -10,8 +10,8 @@ DATA_DIR = Path(__file__).resolve().parents[2] / "data"
 
 class PlanRequest(BaseModel):
     major: str
-    upcoming_term: str   # <-- new
-    grad_term: str       # <-- new
+    upcoming_term: str   
+    grad_term: str       
     completed_courses: List[str] = []
     max_credits_per_term: int = 15
     prefs: Optional[dict] = None
