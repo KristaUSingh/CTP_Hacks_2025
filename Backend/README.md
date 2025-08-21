@@ -46,19 +46,19 @@ data/
 # API Endpoints: 
 ### Core
 - **GET /health**
- - **Purpose:** Liveness check for the service.
- - **Request:** No params.
- - **Response:** "ok" status indicator (HTTP 200).
+  - **Purpose:** Liveness check for the service.
+  - **Request:** No params.
+  - **Response:** "ok" status indicator (HTTP 200).
 
 
 - **GET /majors/**
- - **Purpose:** List available majors discovered from courses.csv.
- - **Request:** No params.
- - **Behavior:** Reads major or majors column; trims/uniques; falls back to ```["CS","MATH"]``` if missing.
- - **Responses:** 200: Array of majors, 500: Malformed/unreadable CSV (only if read fails).
+  - **Purpose:** List available majors discovered from courses.csv.
+  - **Request:** No params.
+  - **Behavior:** Reads major or majors column; trims/uniques; falls back to ```["CS","MATH"]``` if missing.
+  - **Responses:** 200: Array of majors, 500: Malformed/unreadable CSV (only if read fails).
 
 - **POST /plan/**
- - **Purpose:** Generate a semester-by-semester plan between two terms (inclusive).
+  - **Purpose:** Generate a semester-by-semester plan between two terms (inclusive).
 
 ### Request Body Fields:
 - Major: ```str — target major.```
