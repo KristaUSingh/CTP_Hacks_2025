@@ -1,8 +1,10 @@
 import streamlit as st
 import pandas as pd 
 import requests
-from yattag import Doc 
-import pdfkit
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
+from reportlab.lib import colors
+from reportlab.lib.styles import getSampleStyleSheet
 import tempfile
 
 # Website layout: titles, headers etc.
@@ -22,6 +24,9 @@ part_full_time = st.radio("Select if you are part-time or full-time:", ["Part-ti
 
 major = st.selectbox("Select your major:", ["Computer Science", "Mathematics"])
 
+upcoming_term = st.selectbox("Select your upcoming term:", ["Fall 2025", "Spring 2026", "Fall 2026", "Spring 2027", \
+                                                            "Fall 2027", "Spring 2028", "Fall 2028", "Spring 2029"])
+
 graduation = st.selectbox("Select your graduation term:", ["Fall 2025", "Spring 2026", "Fall 2026", "Spring 2027", "Fall 2027", \
                                                            "Spring 2028", "Fall 2028", "Spring 2029"])
 
@@ -34,8 +39,8 @@ else:
 # Major classes selected per campus per major
 if campus == "The City College of New York":
     if major == "Computer Science":
-        df = pd.read_csv("/Users/kristasingh/Desktop/CUNY Tech Prep/Hackathon2025/CTP_Hacks_2025/CScourse.csv")
-        options = df["degree_requirements_course_name"].unique().tolist()
+        df = pd.read_csv("/Users/kristasingh/Desktop/CUNY Tech Prep/Hackathon2025/CTP_Hacks_2025/Frontend/Frontend/courses.csv")
+        options = df["code"].unique().tolist()
         completed_courses = st.multiselect("Select the courses you already completed:", options=options)
     if major == "Mathematics":
         df = pd.read_csv("/Users/kristasingh/Desktop/CUNY Tech Prep/Hackathon2025/CTP_Hacks_2025/Mathcourse.csv")
@@ -43,14 +48,15 @@ if campus == "The City College of New York":
         completed_courses = st.multiselect("Select the courses you already completed:", options=options)
 
 # function to call endpoint
-
-def generate_plan_endpoint(major, graduation, completed_courses, max_credits):
-    api_url = "http://172.20.140.150:8501/"
+def generate_plan_endpoint(major, upcoming_term, graduation, completed_courses, max_credits):
+    api_url = "http://127.0.0.1:8000/generate-plan/"
     payload = {
         "major": major,
-        "graduation_term": graduation,
+        "upcoming_term": upcoming_term,  
+        "grad_term": graduation,
         "completed_courses": completed_courses,
-        "max_credits_per_terms": max_credits,
+        "max_credits_per_term": max_credits,
+        "prefs": {}
     }
     try:
         response = requests.post(api_url, json=payload)
@@ -59,66 +65,91 @@ def generate_plan_endpoint(major, graduation, completed_courses, max_credits):
     except requests.exceptions.RequestException as e:
         st.error(f"Error calling API: {e}")
         return None
-    
+
 
 # things inside the pdf 
-def build_plan_html(data):
-    doc, tag, text = Doc().tagtext()
-    with tag("html"):
-        with tag("head"):
-            doc.stag("meta", charset="UTF-8")
-            with tag("style"):
-                text("""
-                body { font-family: Arial, sans-serif; margin: 20px; }
-                h1 { text-align: center; color: #006D77; }
-                h2 { margin-top: 30px; color: #333; }
-                table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-                th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-                th { background-color: #83C5BE; color: #fff; }
-                tr:nth-child(even) { background-color: #f9f9f9; }
-                .summary { margin-top: 20px; font-weight: bold; }
-                """)
-        with tag("body"):
-            with tag("h1"):
-                text(f"{data['major']} 4-Year Plan ({data['grad_term']})")
-            
-            # Totals
-            with tag("p", klass="summary"):
-                text(f"Total Credits: {data['totals']['credits']} | Major Progress: {int(data['totals']['major_reqs_done']*100)}%")
-            
-            # Terms
-            for term in data["terms"]:
-                with tag("h2"):
-                    text(term["term"])
-                with tag("table"):
-                    with tag("tr"):
-                        for col in ["Code","Title","Credits","Professor","Rating","Workload"]:
-                            with tag("th"): text(col)
-                    for c in term["courses"]:
-                        with tag("tr"):
-                            with tag("td"): text(c["code"])
-                            with tag("td"): text(c["title"])
-                            with tag("td"): text(str(c["credits"]))
-                            with tag("td"): text(c["prof"])
-                            with tag("td"): text(f"{c['rating']:.1f}")
-                            with tag("td"): text(f"{c['workload']:.1f}")
-    return doc.getvalue()
+def make_pdf_from_data(data):
+    # Build PDF filename dynamically
+    pdf_name = f"{data['major'].replace(' ', '_')}_Semesterly_Plan.pdf"
 
-# converts from HTML to PDF
-def make_pdf_from_html(html):
     with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp:
-        pdfkit.from_string(html, tmp.name)
-        return tmp.name
+        # Create doc with title metadata
+        doc = SimpleDocTemplate(
+            tmp.name,
+            pagesize=letter,
+            title=f"{data['major']} Semesterly Plan"
+        )
+        elements = []
+        styles = getSampleStyleSheet()
+
+        # Title
+        elements.append(Paragraph(
+            f"{data['major']} Semesterly Plan (Upcoming: {data['upcoming_term']} → Graduation: {data['grad_term']})",
+            styles["Heading1"]
+        ))
+
+        elements.append(Spacer(1, 12))
+
+        # Totals
+        totals = data["totals"]
+        totals_text = f"""
+        <b>Total Credits Planned:</b> {totals.get('credits_planned', 0)}<br/>
+        <b>Courses Planned:</b> {totals.get('courses_planned', 0)}
+        """
+        if "courses_unscheduled" in totals:
+            totals_text += f"<br/><b>Courses Unscheduled:</b> {totals['courses_unscheduled']}"
+        elements.append(Paragraph(totals_text, styles["Normal"]))
+        elements.append(Spacer(1, 12))
+
+        # Terms
+        for term in data["terms"]:
+            elements.append(Paragraph(term["term"], styles["Heading2"]))
+
+            table_data = [["Code", "Title", "Credits", "Difficulty"]]
+            for c in term["courses"]:
+                table_data.append([c["code"], c["title"], str(c["credits"]), f"{c['difficulty']:.1f}"])
+
+            table = Table(table_data)
+            table.setStyle(TableStyle([
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#83C5BE")),
+                ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                ("ALIGN", (0, 0), (-1, -1), "CENTER"),
+                ("GRID", (0, 0), (-1, -1), 1, colors.black),
+                ("BACKGROUND", (0, 1), (-1, -1), colors.whitesmoke),
+            ]))
+            elements.append(table)
+            elements.append(Spacer(1, 12))
+
+        # Unscheduled Courses
+        if "unscheduled_courses" in data:
+            elements.append(Paragraph("Unscheduled Courses", styles["Heading2"]))
+            table_data = [["Code", "Title", "Credits", "Difficulty"]]
+            for c in data["unscheduled_courses"]:
+                table_data.append([c["code"], c["title"], str(c["credits"]), f"{c['difficulty']:.1f}"])
+
+            table = Table(table_data)
+            table.setStyle(TableStyle([
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#E29578")),
+                ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                ("ALIGN", (0, 0), (-1, -1), "CENTER"),
+                ("GRID", (0, 0), (-1, -1), 1, colors.black),
+                ("BACKGROUND", (0, 1), (-1, -1), colors.beige),
+            ]))
+            elements.append(table)
+
+        doc.build(elements)
+
+        return tmp.name, pdf_name
 
 
 # generate plan when button is clicked 
 if st.button("Generate Plan"):
-    data = generate_plan_endpoint(major, graduation, completed_courses, max_credits)
+    data = generate_plan_endpoint(major, upcoming_term, graduation, completed_courses, max_credits)
     if data:
         st.success("Success with generating plan!")
-    
-    html = build_plan_html(data)
-    pdf_path = make_pdf_from_html(html)
+        pdf_path, pdf_name = make_pdf_from_data(data)
 
-    with open(pdf_path, "rb") as f:
-            st.download_button("Download PDF", f, file_name="plan.pdf", mime="application/pdf")
+        with open(pdf_path, "rb") as f:
+            st.download_button("Download PDF", f, file_name=pdf_name, mime="application/pdf")
+
+
