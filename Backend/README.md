@@ -23,9 +23,14 @@ app/
 ├─ scheduler.py            # build_term_range + greedy_schedule
 └─ main.py                 # FastAPI app, routers, CORS, /health
 data/
-├─ courses.csv
-├─ prereqs.csv
-├─ professors.csv
+ |-- cs/
+  ├─ courses.csv
+  ├─ prereqs.csv
+  ├─ professors.csv
+ |-- math/
+  ├─ courses.csv
+  ├─ prereqs.csv
+  ├─ professors.csv
 ```
 
 
