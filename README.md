@@ -38,7 +38,7 @@ data/
 - **Python 3.10+:** version of Python used
 
 
-# API ENDPOINTS: 
+# API Endpoints: 
 ### Core
 - **GET /health**
  - **Purpose:** Liveness check for the service.
