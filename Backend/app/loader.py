@@ -22,8 +22,3 @@ def validate_prereqs(dfs: Dict[str, pd.DataFrame]):
           set(dfs["prereqs"]["requires_course_id"].astype(int)).difference(courses)
     if bad:
         raise ValueError(f"Prereqs reference unknown course ids: {sorted(bad)}")
-
-def write_sqlite(dfs: Dict[str, pd.DataFrame], engine):
-    """Write DataFrames to SQLite (if you choose to use SQL)."""
-    for name, df in dfs.items():
-        df.to_sql(name, engine, if_exists="replace", index=False)
