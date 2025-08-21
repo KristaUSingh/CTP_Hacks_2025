@@ -62,10 +62,10 @@ data/
 
 ### Request Body Fields:
 - Major: ```str — target major.```
-- Upcoming_term: ```str — format YYYYF, YYYYS, or YYYYSu``` 
+- Upcoming_term: ```str — format Fall YYYY, Spring YYYY, or Summer YYYY``` 
 - Grad_term: str — ```same format as above.```
 - Completed_courses: ```List[str] = [] — course codes already taken.```
-- Max_credits_per_term: ```int = 15 — cap for Fall/Spring; Summer is capped at 8 internally.```
+- Max_credits_per_term: ```int = 15 — cap for Fall/Spring; Summer is capped at 9 internally.```
 - prefs: Optional[dict] = ```None  — reserved for future scheduling preferences.```
 
 ### Behavior:
