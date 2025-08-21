@@ -52,7 +52,7 @@ if campus == "The City College of New York":
 
 # function to call endpoint
 def generate_plan_endpoint(major, upcoming_term, graduation, completed_courses, max_credits):
-    api_url = "http://127.0.0.1:8000/generate-plan/"
+    api_url = "https://cunypathfinder.vercel.app/generate-plan/"
     payload = {
         "major": major,
         "upcoming_term": upcoming_term,  
