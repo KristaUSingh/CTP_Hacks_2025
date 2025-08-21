@@ -6,6 +6,12 @@ from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, 
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet
 import tempfile
+<<<<<<< Updated upstream
+=======
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent / "data"
+>>>>>>> Stashed changes
 
 # Website layout: titles, headers etc.
 st.image("../Frontend/CUNY PathFinder.svg", width=300)
@@ -39,12 +45,21 @@ else:
 # Major classes selected per campus per major
 if campus == "The City College of New York":
     if major == "Computer Science":
+<<<<<<< Updated upstream
         df = pd.read_csv("/Users/kristasingh/Desktop/CUNY Tech Prep/Hackathon2025/CTP_Hacks_2025/Frontend/Frontend/courses.csv")
         options = df["code"].unique().tolist()
         completed_courses = st.multiselect("Select the courses you already completed:", options=options)
     if major == "Mathematics":
         df = pd.read_csv("/Users/kristasingh/Desktop/CUNY Tech Prep/Hackathon2025/CTP_Hacks_2025/Mathcourse.csv")
         options = df["NAME"].unique().tolist()
+=======
+        df = pd.read_csv(BASE_DIR / "computer science" / "courses.csv")
+        options = df["code"].unique().tolist()
+        completed_courses = st.multiselect("Select the courses you already completed:", options=options)
+    if major == "Mathematics":
+        df = pd.read_csv(BASE_DIR / "mathematics" / "courses.csv")
+        options = df["code"].unique().tolist()
+>>>>>>> Stashed changes
         completed_courses = st.multiselect("Select the courses you already completed:", options=options)
 
 # function to call endpoint
