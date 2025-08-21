@@ -3,9 +3,9 @@ id,name,dept,rmp_rating,difficulty
 2,Sam Magill,MATH,2.5,4.2
 3,Sean Cleary,MATH,3.4,4.0
 4,Eli Amzallag,MATH,4.0,3.3
-5,Abdelahad Khajo,SCIENCE,3.8,3.1
-6,Issa Salame,SCIENCE,4.4,2.6
-7,Sergey Vitkalov,SCIENCE,2.8,2.8
+5,Abdelahad Khajo,SCIENCE ,3.8,3.1
+6,Issa Salame,SCIENCE ,4.4,2.6
+7,Sergey Vitkalov,SCIENCE ,2.8,2.8
 8,Madeline Blount,CS,5.0,2.1
 9,Tugce Ozdemir,CS,4.3,3.0
 10,Mohammad Charrwi,CS,4.9,1.6
@@ -28,4 +28,10 @@ id,name,dept,rmp_rating,difficulty
 27,Kwame Baffour,CS,3.5,2.8
 28,Santonyo Bangali,ENGLISH,4.9,2.1
 29,Yolonde Van Putten,ENGLISH,2.8,3.9
-30,Thomas Cheriyan,ENGINEERING,4.6,2.6
+30,Thomas Cheriyan,ENGINEERING ,4.6,2.6
+31,ALEXANDER MOSER,ENGLISH,4.9,2.0
+32,STUART ROCKEFELLER,ANTHROPOLOGY ,4.5,2.0
+33,JOSE CHACON,CLASSICAL AND MODERN LANGUAGES LITERATURE,1.8,4.2
+34,MATTHEW VAZ,HISTORY,4.7,2.1
+35,MEYKEN BARRETO,ART,3.9,2.7
+36,JOAN LOPEZ,ANTHROPOLOGY ,4.7,1.3
