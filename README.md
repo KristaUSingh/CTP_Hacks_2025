@@ -1,5 +1,6 @@
 # CUNY PathFinder - Frontend
 <img width="592" height="777" alt="Screenshot 2025-08-20 at 10 34 56 PM" src="https://github.com/user-attachments/assets/8c71eb7d-0956-40d1-8c27-2d7d39ab72f5" />
+
 This is the frontend for CUNY PathFinder. CUNY PathFinder's goal is to help CUNY students generate a personalized semester-by-semester course plan based on their major, graduation term, and completed courses.
 
 
