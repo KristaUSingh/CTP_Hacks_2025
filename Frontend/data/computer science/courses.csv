@@ -1,0 +1,42 @@
+id,code,title,credits,dept,typical_terms,professor_id
+1,MATH 20100,Calculus 1 ,4,MATH,"F,S,Su",1
+2,MATH 21200,Calculus 2 ,4,MATH,"F,S,Su",2
+3,MATH 21300,Calculus 3,4,MATH,"F,S,Su",3
+4,MATH 34600,Elements of Linear Algebra,3,MATH,"F,S,Su",4
+5,CHEM 10301,General Chemistry 1,4,SCIENCE ,"F,S,Su",5
+6,CHEM 10401,General Chemistry 2,4,SCIENCE ,"F,S,Su",6
+7,PHYS 20700,General Physics 1,4,SCIENCE ,"F,S,Su",7
+8,CSC 10300,Intro to Computing for Majors,3,CS,"F,S,Su",8
+9,CSC 10400,Discrete Math Structures,4,CS,"F,S,Su",9
+10,CSC 21100,Fundamentals of Computer Systems,3,CS,"F,S,Su",10
+11,CSC 21200,Data Structures,3,CS,"F,S,Su",11
+12,CSC 21700,Probability & Statistics for Computer Science,3,CS,"F,S,Su",12
+13,CSC 22000,Algorithms,3,CS,"F,S,Su",13
+14,CSC 22100,Software Design Lab,3,CS,"F,S",14
+15,CSC 30400,Theoretical Computer Science,3,CS,"F,S",15
+16,CSC 30100,Numerical Issues in Scientific Programming,3,CS,"F,S",16
+17,CSC 38000,Computer Security,3,CS,"F,S",17
+18,CSC 33500,Programming Language Paradigms,3,CS,"F,S",18
+19,CSC 32200,Software Engineering,3,CS,"F,S",19
+20,CSC 33600,Introduction to Database Systems,3,CS,"F,S",20
+21,CSC 33200,Operating Systems,4,CS,"F,S",14
+22,CSC 34200,Computer Organization,3,CS,"F,S",21
+23,CSC 34300,Computer Organization Lab,3,CS,"F,S",21
+24,CSC 59866,Senior Design Project 1,3,CS,"F,S",22
+25,CSC 59867,Senior Design Project 2,3,CS,"F,S",23
+26,CSC 11300,Programming Language,1,CS,"F,S",24
+27,CSC 42200,Computability,3,CS,"F,S",13
+28,CSC 44800,Artificial Intelligence,3,CS,"F,S",25
+29,CSC 48000,Cryptography,3,CS,"F,S",13
+30,CSC 47000,Image Processing,3,CS,"F,S",26
+31,CSC 47300,Website and Web Application Development,3,CS,"F,S",27
+32,ENGL 21007,Writing for Engineering,3,ENGLISH,"F,S,Su",28
+33,SPCH 11100,Foundations of Speech Communication,3,ENGLISH,"F,S,Su",29
+34,ENGR 27600,Engineering Economics,3,ENGINEERING ,"F,S,Su",30
+35,ENGL 11000,Freshman Composition,3,ENGLISH,"F,S,Su",31
+36,CSC 44700,Intro to Machine Learning,3,CS,"F,S",25
+37,ANTH 10100,Introduction to Anthropology,3,ANTHROPOLOGY ,"F,S ",32
+38,SPAN 12104,Intro Spanish 1,3,CLASSICAL AND MODERN LANGUAGES LITERATURE,"F,S",33
+39,HIST 24100,The United States: Since 1865,3,HISTORY,"F,S",34
+40,ART 10000,Introduction to the Visual Arts of the World,3,ART,"F,S",35
+41,ANTH 20100,Cross-Cultural Perspectives,3,ANTHROPOLOGY ,"F,S",36
