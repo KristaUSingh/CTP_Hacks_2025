@@ -1,5 +1,5 @@
 # CUNY PathFinder - Backend
-<div align="center"><img width="1920" height="1080" alt="CTP Hacks Presentation" src="https://github.com/user-attachments/assets/7c872add-b904-468f-9933-064d8f63f8ff"/></center>
+<div align="center"><img width="1920" height="1080" alt="CTP Hacks Presentation" src="https://github.com/user-attachments/assets/7c872add-b904-468f-9933-064d8f63f8ff"/></div>
 
 The CUNY PathFinder backend, built by the Beavers Intelligence Unit for the CTP Hacks Hackathon 2025, is powered by FastAPI and designed to generate semester-by-semester course plans. It processes catalog data from CSV files, validates prerequisite requirements, and constructs term schedules using a greedy algorithm that balances workload and enforces credit limits.
 
