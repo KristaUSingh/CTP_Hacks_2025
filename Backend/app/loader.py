@@ -3,7 +3,7 @@ import pandas as pd
 from typing import Dict
 
 DATA_DIR = Path(__file__).resolve().parents[1] / "data"
-REQUIRED_TABLES = ["courses", "prereqs", "offerings", "professors", "degree_requirements"]
+REQUIRED_TABLES = ["courses", "prereqs", "professors"]
 
 def load_csvs(data_dir: Path = DATA_DIR) -> Dict[str, pd.DataFrame]:
     """Load CSVs into pandas DataFrames. Raises if a required file is missing."""

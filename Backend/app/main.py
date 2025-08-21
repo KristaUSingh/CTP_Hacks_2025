@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api import majors, plan  # <- import directly
+from app.api import majors, plan
 
 app = FastAPI(title="Course Planner API")
 
