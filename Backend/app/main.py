@@ -12,7 +12,7 @@ app.add_middleware(
 )
 
 app.include_router(majors.router, prefix="/majors", tags=["majors"])
-app.include_router(plan.router, prefix="/plan", tags=["plan"])
+app.include_router(plan.router, prefix="/generate-plan", tags=["plan"])
 
 @app.get("/health")
 def health():

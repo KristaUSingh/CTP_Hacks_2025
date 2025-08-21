@@ -22,7 +22,7 @@ def generate_plan(req: PlanRequest):
         raise HTTPException(status_code=500, detail="Data files missing in data/")
 
     try:
-        result = greedy_schedule(
+        schedule = greedy_schedule(
             major=req.major,
             upcoming_term=req.upcoming_term,
             grad_term=req.grad_term,
@@ -30,6 +30,13 @@ def generate_plan(req: PlanRequest):
             max_credits_per_term=req.max_credits_per_term,
             data_dir=DATA_DIR
         )
-        return result
+        return {
+            "major": req.major,
+            "upcoming_term": req.upcoming_term,
+            "grad_term": req.grad_term,
+            **schedule  # merge the dict from greedy_schedule
+        }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+

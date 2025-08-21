@@ -7,33 +7,37 @@ import uuid
 
 def build_term_range(start_term: str, end_term: str):
     """
-    Generate terms from start_term up to and including end_term
+    Generate terms from start_term up to and including end_term.
     Example:
-    build_term_range("2025F", "2026F") -> ["2025F", "2026S", "2026Su", "2026F"]
+    build_term_range("Fall 2025", "Spring 2026")
+      -> ["Fall 2025", "Spring 2026"]
     """
+    seasons = ["Spring", "Summer", "Fall"]
+
     def term_to_tuple(term):
-        year, sem = int(term[:-1]), term[-1]
-        return year, sem
+        season, year = term.split()
+        year = int(year)
+        return year, season
 
-    def next_term(year, sem):
-        if sem == "F":
-            return year + 1, "S"
-        elif sem == "S":
-            return year, "Su"
-        elif sem == "Su":
-            return year, "F"
+    def next_term(year, season):
+        idx = seasons.index(season)
+        if idx == len(seasons) - 1:  # Fall → next Spring
+            return year + 1, seasons[0]
+        else:
+            return year, seasons[idx + 1]
 
-    start_year, start_sem = term_to_tuple(start_term)
-    end_year, end_sem = term_to_tuple(end_term)
+    start_year, start_season = term_to_tuple(start_term)
+    end_year, end_season = term_to_tuple(end_term)
 
     seq = []
-    y, s = start_year, start_sem
+    y, s = start_year, start_season
     while True:
-        seq.append(f"{y}{s}")
-        if (y, s) == (end_year, end_sem):
+        seq.append(f"{s} {y}")
+        if (y, s) == (end_year, end_season):
             break
         y, s = next_term(y, s)
     return seq
+
 
 def greedy_schedule(major: str,
                     upcoming_term: str,
