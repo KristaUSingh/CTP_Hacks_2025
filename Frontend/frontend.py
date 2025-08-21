@@ -7,7 +7,7 @@ import tempfile
 
 # Website layout: titles, headers etc.
 st.image("../Frontend/CUNY PathFinder.svg", width=300)
-st.title("CUNY PathFinder!")
+st.title("Welcome to CUNY PathFinder!")
 
 st.header("Please select your information below to generate your semesterly plan:")
 
