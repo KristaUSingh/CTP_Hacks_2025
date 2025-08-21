@@ -1,5 +1,5 @@
 # CUNY PathFinder - CTP_Hacks_2025
-<div align="center"><img width="900" height="900" alt="CUNY PathFinder" src="https://github.com/user-attachments/assets/a38a9f21-63a8-41bb-a62f-313dd328ba02"/></div>
+<div align="center"><img width="300" height="300" alt="CUNY PathFinder" src="https://github.com/user-attachments/assets/a38a9f21-63a8-41bb-a62f-313dd328ba02"/></div>
 
 Explains the work done by our team, **Beaver Intelligence Unit**, for CUNY Tech Prep's Hackathon 2025. We created a tool that helps CUNY students map out their academic journey in a clear, personalized, and structured way. This project was completed using Streamlit for the frontend, FastAPI for the backend, and Pandas/NetworkX for scheduling logic.
 
