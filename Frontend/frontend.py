@@ -11,7 +11,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent / "data"
 
 # Website layout: titles, headers etc.
-st.image("../Frontend/CUNY PathFinder.svg", width=300)
+st.image("CUNY PathFinder.svg", width=300)
 st.title("Welcome to CUNY PathFinder!")
 
 st.header("Please select your information below to generate your semesterly plan:")
